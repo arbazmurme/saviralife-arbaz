@@ -15,9 +15,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default HomeCat = () => {
+const HomeCat = () => {
   return (
-    <section className="container mx-auto py-8">
+    <section className="pt-6">
       <div className="flex flex-wrap">
         <div className="w-full">
           <div className="flex flex-col">
@@ -115,7 +115,7 @@ export default HomeCat = () => {
                                     {item.title}
                                   </div>
                                   <img
-                                    className="img-fluid w-full h-auto hover:scroll-m-20"
+                                    className="img-fluid w-full h-auto"
                                     src={item.imgSrc}
                                     alt={item.alt}
                                   />
@@ -136,3 +136,5 @@ export default HomeCat = () => {
     </section>
   );
 };
+
+export default HomeCat;
