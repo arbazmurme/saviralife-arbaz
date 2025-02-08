@@ -80,7 +80,7 @@ const HomeCat = () => {
   ];
 
   return (
-    <section className="animated fadeInUp">
+    <section className="animate-fadeInUp mt-4">
       <Swiper
         draggable={true}
         grabCursor={true}
@@ -101,39 +101,13 @@ const HomeCat = () => {
         {categories.map((item, index) => (
           <SwiperSlide key={index}>
             <Link href="/category">
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  transition: "transform 0.2s ease-in-out",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.transform = "scale(1.05)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.transform = "scale(1)")
-                }
-              >
+              <div className="flex flex-col items-center cursor-pointer transition-transform transform hover:scale-105">
                 <img
-                  style={{
-                    width: "96px",
-                    height: "96px",
-                    objectFit: "contain",
-                  }}
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
                   src={item.imgSrc}
                   alt={item.alt}
                 />
-                <div
-                  style={{
-                    marginTop: "8px",
-                    textAlign: "center",
-                    fontSize: "14px",
-                    fontWeight: "500",
-                    color: "#4a5568",
-                  }}
-                >
+                <div className="text-center text-sm font-medium text-gray-600">
                   {item.title}
                 </div>
               </div>
@@ -146,3 +120,4 @@ const HomeCat = () => {
 };
 
 export default HomeCat;
+

@@ -1,7 +1,8 @@
+import Adsection from "@/components/home/Adsection";
 import ExploreProduct from "@/components/home/ExploreProduct";
 import HomeBanner from "@/components/home/HomeBanner";
 import HomeCat from "@/components/home/HomeCat";
-import ProductList from "@/components/product/productList";
+import WinterTea from "@/components/home/WinterTea";
 
 export default function Home() {
   return (
@@ -9,7 +10,8 @@ export default function Home() {
       <HomeCat />
       <HomeBanner />
       <ExploreProduct />
-      <ProductList />
+      <WinterTea />
+      <Adsection />
     </>
   );
 }

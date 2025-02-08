@@ -144,11 +144,11 @@ const Hadear = () => {
                                                       }}
                                                     />
                                                   </div>
-                                                  <href to="/search">
+                                                  <Link href="/search">
                                                     <div className="btn btn-default button button-small">
                                                       <span>Search </span>
                                                     </div>
-                                                  </href>
+                                                  </Link>
                                                 </div>
                                               </div>
                                               {/* /Block search module */}
@@ -169,9 +169,9 @@ const Hadear = () => {
                                           >
                                             <div className="elementor-widget-container">
                                               <div className="userinfo-selector links dropdown js-dropdown popup-over">
-                                                <href to="/login">
+                                                <Link href="/login">
                                                   <FaRegUser size={20} />
-                                                </href>
+                                                </Link>
                                               </div>
                                             </div>
                                           </div>

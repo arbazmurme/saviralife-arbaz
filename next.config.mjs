@@ -6,8 +6,17 @@ const nextConfig = {
         protocol: "https",
         hostname: "res.cloudinary.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+      },
+      {
+        protocol: "https",
+        hostname: "primecomputer.com.bd",
+      },
     ],
   },
 };
 
 export default nextConfig;
+

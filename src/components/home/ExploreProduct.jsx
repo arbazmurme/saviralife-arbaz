@@ -1,18 +1,15 @@
 "use client";
 import { useRef } from "react";
-import { MdOutlineShoppingBag } from "react-icons/md";
-import {
-  FaStar,
-  FaRegHeart,
-  FaArrowLeftLong,
-  FaArrowRight,
-} from "react-icons/fa6";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { FaStar } from "react-icons/fa";
+import { FaArrowLeftLong, FaArrowRight } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Link from "next/link";
+import Image from "next/image";
 
 const products = [
   {
@@ -57,30 +54,30 @@ const ExploreProduct = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section className="elementor-section elementor-top-section animated fadeInUp">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-[30%_70%] grid-cols-1 gap-6 items-center">
+    <section className="elementor-section elementor-top-section animated fadeInUp py-8 px-4 md:px-8 lg:px-16">
+      <div className="container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-[29%_70%] gap-6 items-center">
           {/* Left Column - Heading & Buttons */}
-          <div className="text-center">
-            <h4 className="text-2xl font-bold mb-4">
+          <div className="text-center md:text-left">
+            <h4 className="text-3xl md:text-5xl font-bold mb-4 md:mb-8">
               Explore Our Seasonal Favourites
             </h4>
-            <div className="flex justify-center items-center gap-4 mt-4">
+            <div className="justify-center md:justify-start items-center gap-6 mt-4 hidden md:flex">
               <button
-                className="bg-green-600 text-white p-2 rounded-full shadow-lg hover:bg-green-700 hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none"
+                className="bg-[#8CBC4F] text-white p-2 rounded-full shadow-lg hover:scale-105 transition-all"
                 aria-label="Previous"
                 type="button"
-                onClick={() => swiperRef.current?.slidePrev()} // Move to previous slide
+                onClick={() => swiperRef.current?.slidePrev()}
               >
-                <FaArrowLeftLong size={24} />
+                <FaArrowLeftLong size={20} />
               </button>
               <button
-                className="bg-green-600 text-white p-2 rounded-full shadow-lg hover:bg-green-700 hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none"
+                className="bg-[#8CBC4F] text-white p-2 rounded-full shadow-lg hover:scale-105 transition-all"
                 aria-label="Next"
                 type="button"
-                onClick={() => swiperRef.current?.slideNext()} // Move to next slide
+                onClick={() => swiperRef.current?.slideNext()}
               >
-                <FaArrowRight size={24} />
+                <FaArrowRight size={20} />
               </button>
             </div>
           </div>
@@ -88,7 +85,7 @@ const ExploreProduct = () => {
           {/* Right Column - Swiper Carousel */}
           <div>
             <Swiper
-              onSwiper={(swiper) => (swiperRef.current = swiper)} // Store Swiper instance
+              onSwiper={(swiper) => (swiperRef.current = swiper)}
               draggable
               grabCursor
               navigation={false}
@@ -98,57 +95,59 @@ const ExploreProduct = () => {
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
               loop={true}
               breakpoints={{
-                360: { slidesPerView: 2.5, spaceBetween: 1 },
-                460: { slidesPerView: 2.3, spaceBetween: 2 },
-                720: { slidesPerView: 3, spaceBetween: 10 },
-                1080: { slidesPerView: 3, spaceBetween: 7 },
+                360: { slidesPerView: 1.5, spaceBetween: 10 },
+                460: { slidesPerView: 2, spaceBetween: 15 },
+                720: { slidesPerView: 2.5, spaceBetween: 20 },
+                1080: { slidesPerView: 3, spaceBetween: 25 },
               }}
               className="mySwiper"
             >
               {products.map((product) => (
-                <SwiperSlide key={product.id}>
-                  <Link href="/productinfo">
-                    <div className="p-4">
-                      <article className="border rounded-lg overflow-hidden shadow-lg">
-                        <div className="relative">
-                          <img
-                            className="w-full h-48 object-cover"
+                <SwiperSlide key={product.id} className="flex justify-center">
+                  <Link href="/productinfo" className="block w-full max-w-xs">
+                    <div className="border border-green-200 rounded-lg shadow-md relative">
+                      <span className="p-4">
+                        <span className="absolute top-2 left-2 bg-[#8CBC4F] text-white text-xs font-semibold px-2 py-1 rounded-full">
+                          {product.discount}
+                        </span>
+                        <button className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center">
+                          <AiOutlineHeart className="text-gray-600 text-lg" />
+                        </button>
+                        <div className="flex justify-center">
+                          <Image
                             src={product.imageUrl}
                             alt={product.title}
+                            width={270}
+                            height={270}
+                            className="object-contain w-full h-48 md:h-60 rounded-lg"
                           />
-                          <ul className="absolute top-0 left-0 bg-red-500 text-white px-2 py-1">
-                            <li>{product.discount}</li>
-                          </ul>
-                          <div className="absolute bottom-0 left-0 p-2">
-                            <span className="bg-white rounded-full p-2 shadow-lg">
-                              <FaRegHeart size={20} className="text-red-500" />
-                            </span>
-                          </div>
                         </div>
-                        <div className="p-4">
-                          <div className="flex items-center mb-2">
-                            {[...Array(5)].map((_, index) => (
-                              <FaStar
-                                key={index}
-                                size={20}
-                                className="text-yellow-400"
-                              />
-                            ))}
-                          </div>
-                          <h3 className="text-lg font-semibold truncate">
-                            {product.title}
-                          </h3>
-                          <p className="text-gray-600">{product.description}</p>
-                          <div className="flex items-center justify-between mt-4">
-                            <span className="text-green-700 font-bold">
-                              {product.price}
-                            </span>
-                            <button className="bg-green-700 text-white p-2 rounded-full shadow-lg">
-                              <MdOutlineShoppingBag size={20} />
-                            </button>
-                          </div>
+                      </span>
+
+                      <div className="mt-4 p-4 text-center md:text-left bg-green-50 rounded-t-2xl rounded-b-lg">
+                        <h3 className="text-gray-800 font-semibold text-base truncate">
+                          {product.title}
+                        </h3>
+                        <p className="uppercase text-green-600 text-xs font-medium">
+                          {product.description}
+                        </p>
+                        <div className="flex justify-center md:justify-start space-x-1 text-yellow-500 mt-1">
+                          {[...Array(4)].map((_, i) => (
+                            <FaStar key={i} />
+                          ))}
                         </div>
-                      </article>
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-blue-600 text-lg font-semibold">
+                            {product.price}
+                          </span>
+                          <span class="text-gray-400 text-sm line-through">
+                            {product.price}
+                          </span>
+                          <button className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow text-white">
+                            <AiOutlineShoppingCart className="text-xl" />
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </Link>
                 </SwiperSlide>
