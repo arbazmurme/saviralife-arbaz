@@ -80,7 +80,7 @@ const HomeCat = () => {
   ];
 
   return (
-    <section className="elementor-element elementor-element-e5ad149 elementor-section-boxed elementor-section-height-default elementor-section-height-inner-default elementor-section elementor-top-section">
+    <section className="animated fadeInUp">
       <Swiper
         draggable={true}
         grabCursor={true}
