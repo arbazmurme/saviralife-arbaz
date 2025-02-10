@@ -1,7 +1,9 @@
 import Adsection from "@/components/home/Adsection";
+import BoostSection from "@/components/home/BoostSection";
 import ExploreProduct from "@/components/home/ExploreProduct";
 import HomeBanner from "@/components/home/HomeBanner";
 import HomeCat from "@/components/home/HomeCat";
+import TeaLover from "@/components/home/TeaLover";
 import WinterTea from "@/components/home/WinterTea";
 
 export default function Home() {
@@ -12,6 +14,8 @@ export default function Home() {
       <ExploreProduct />
       <WinterTea />
       <Adsection />
+      <TeaLover />
+      <BoostSection />
     </>
   );
 }
