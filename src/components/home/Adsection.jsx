@@ -17,7 +17,7 @@ const AdItem = ({ imgSrc, title, description }) => {
       </div>
 
       {/* Text Content */}
-      <div className="text-white text-center md:text-left space-y-1">
+      <div className="text-white mt-1 md:mt-0 text-center md:text-left md:space-y-1 ">
         <h3 className="text-[12px] md:text-lg font-semibold">{title}</h3>
         <p className="text-[10px] md:text-sm text-gray-300">{description}</p>
       </div>
@@ -52,13 +52,15 @@ const AdSection = () => {
   ];
 
   return (
-    <section className="flex flex-wrap justify-center items-center bg-[#194A33] px-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-12">
-        {adItems.map((item, index) => (
-          <AdItem key={index} {...item} />
-        ))}
-      </div>
-    </section>
+    <section className="elementor-section-height-inner-default elementor-section elementor-top-section animated fadeInUp">    
+        <div className="flex flex-wrap justify-center items-center bg-[#194A33] px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 my-12">
+            {adItems.map((item, index) => (
+              <AdItem key={index} {...item} />
+            ))}
+          </div>
+        </div>
+      </ section>
   );
 };
 

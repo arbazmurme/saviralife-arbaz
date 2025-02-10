@@ -140,7 +140,7 @@ const ExploreProduct = () => {
                           <span className="text-blue-600 text-lg font-semibold">
                             {product.price}
                           </span>
-                          <span class="text-gray-400 text-sm line-through">
+                          <span className="text-gray-400 text-xs text-left line-through">
                             {product.price}
                           </span>
                           <button className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center shadow text-white">
