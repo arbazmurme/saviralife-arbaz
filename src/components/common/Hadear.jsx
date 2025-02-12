@@ -1,16 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import  Link  from "next/link";
+import Link from "next/link";
 import { FaRegUser } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { IoMenu } from "react-icons/io5";
 import "./Header.css";
 import "./FooterMoblie_ver.css";
+import FillCartDesktop from "../cart/FillCartDesktop";
 
 const Hadear = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [showToggle, setShowToggle] = useState(false);
+  const [isCartVisible, setIsCartVisible] = useState(false); // State for cart visibility
 
   const handleScroll = () => {
     if (window.scrollY > 100) {
@@ -20,9 +22,12 @@ const Hadear = () => {
     }
   };
 
+  const toggleCart = () => {
+    setIsCartVisible(!isCartVisible); // Function to toggle cart visibility
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -188,7 +193,7 @@ const Hadear = () => {
                                                 title="Wishlist"
                                                 rel="nofollow"
                                               >
-                                                <FaRegHeart size={20}/>
+                                                <FaRegHeart size={20} />
                                               </a>
                                             </div>
                                           </div>
@@ -199,8 +204,11 @@ const Hadear = () => {
                                             data-element_type="widget"
                                             data-widget_type="LeoModule.default"
                                           >
-                                            <div className="elementor-widget-container">
-                                              <Link href="/cart">
+                                            <div
+                                              className="elementor-widget-container"
+                                              onClick={toggleCart}
+                                            >
+                                              <Link href="#">
                                                 <div id="_desktop_cart">
                                                   <div className="blockcart cart-preview leo-blockcart show-leo-loading inactive">
                                                     <div className="header">
@@ -231,7 +239,7 @@ const Hadear = () => {
                                               <div className="ApMegamenu">
                                                 <nav className="leo-megamenu cavas_menu navbar navbar-default enable-canvas ">
                                                   <div className="navbar-header">
-                                                    <button
+                                                    {/* <button
                                                       className="navbar-toggler hidden-lg-up"
                                                       onClick={() =>
                                                         setShowToggle(
@@ -240,7 +248,7 @@ const Hadear = () => {
                                                       }
                                                     >
                                                       <IoMenu size={24} />
-                                                    </button>
+                                                    </button> */}
                                                   </div>
                                                   {showToggle === true ? (
                                                     <>
@@ -553,6 +561,7 @@ const Hadear = () => {
           </div>
         </div>
       </header>
+      <FillCartDesktop isCartVisible={isCartVisible} toggleCart={toggleCart} />
     </>
   );
 };

@@ -1,0 +1,106 @@
+.container {
+    background-color: var(--skin-base);
+    color: rgba(var(--skin-primary-void), 0.6);
+    font-family: var(--font-subtitle);
+    overflow: hidden;
+    font-size: 1.125rem; /* text-lg equivalent */
+    transition: all 0.2s ease;
+    height: 162px;
+  }
+  
+  
+  .bgSkinBase {
+    background-color: var(--skin-base);
+  }
+  
+  .noScrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollWrapper {
+    display: flex;
+    overflow-x: scroll;
+  }
+  
+  .button {
+    margin-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(236, 236, 236);
+    padding: 0.5rem;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 2rem;
+    height: 2rem;
+    transition: color 0.2s ease;
+  }
+  
+  .textWrapper {
+    width: 11rem;
+    padding-left: 0.5rem;
+    text-align: left;
+  }
+  
+  .title {
+    font-family: var(--font-body);
+    font-size: 0.875rem; /* text-sm equivalent */
+    font-weight: 600;
+    text-align: center;
+    color: var(--skin-inverted);
+  }
+  
+  .subtitle {
+    border-bottom-color: rgb(229, 231, 235);
+    border-bottom-style: solid;
+    border-bottom-width: 0px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(229, 231, 235);
+    border-left-style: solid;
+    border-left-width: 0px;
+    border-right-color: rgb(229, 231, 235);
+    border-right-style: solid;
+    border-right-width: 0px;
+    border-top-color: rgb(229, 231, 235);
+    border-top-style: solid;
+    border-top-width: 0px;
+    box-sizing: border-box;
+    color: rgba(43, 30, 53, 0.5);
+    cursor: pointer;
+    display: block;
+    font-family: __zeptoNorms_099926, __zeptoNorms_Fallback_099926;
+    font-feature-settings: normal;
+    font-kerning: auto;
+    font-optical-sizing: auto;
+    font-size: 12px;
+    font-size-adjust: none;
+    font-stretch: 100%;
+    font-style: normal;
+    font-variant-alternates: normal;
+    font-variant-caps: normal;
+    font-variant-east-asian: normal;
+    font-variant-emoji: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-variant-position: normal;
+    font-variation-settings: normal;
+    font-weight: 400;
+    height: 52px;
+    letter-spacing: normal;
+    line-height: 16px;
+  }
+  
+  @media (min-width: 768px) {
+    .subtitle {
+      font-size: 0.75rem; /* text-xs equivalent */
+    }
+  }
+  
