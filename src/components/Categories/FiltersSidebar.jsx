@@ -12,9 +12,6 @@ import {
   Checkbox,
   Button,
   Paper,
-  InputLabel,
-  MenuItem,
-  Select,
 } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
 const FiltersSidebar = ({ minPrice = 0, maxPrice = 100000 }) => {
@@ -22,15 +19,6 @@ const FiltersSidebar = ({ minPrice = 0, maxPrice = 100000 }) => {
   const [selectedTags, setSelectedTags] = useState([]);
   const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
 
-  const sortOptions = [
-    "Sales, Highest and Lowest",
-    "Relevance",
-    "Name : A to Z",
-    "Name : Z to A",
-    "Price : High to Low",
-    "Price : Low to High",
-  ];
-  const [sortOption, setSortOption] = useState("");
   const Categories = ["Loose tea", "Oolong"];
   const size = ["s", "m", "l", "xl"];
   const color = ["White", "Black"];
@@ -48,15 +36,17 @@ const FiltersSidebar = ({ minPrice = 0, maxPrice = 100000 }) => {
   return (
     <div className="z-50">
       {/* ✅ Mobile Toggle Button */}
-      <Button
-        variant="outlined"
-        startIcon={<Filter />}
-        onClick={() => setOpenFilters(true)}
-        className="md:hidden w-full text-gray-800 border-gray-300"
-      >
-        Filters
-      </Button>
-      {/* <div className="flex items-center gap-2"></div> */}
+      <span className="hidden md:hidden">
+        <Button
+          variant="outlined"
+          startIcon={<Filter />}
+          onClick={() => setOpenFilters(true)}
+          // className="md:hidden w-full text-gray-800 border-gray-300"
+          className="w-full text-gray-800 border-gray-300"
+        >
+          Filters
+        </Button>
+      </span>
 
       {/* ✅ MUI Drawer for Mobile */}
       <Drawer
@@ -66,7 +56,7 @@ const FiltersSidebar = ({ minPrice = 0, maxPrice = 100000 }) => {
       >
         <Paper className="w-72 h-min p-5 shadow-lg">
           <div className="flex items-center justify-between mb-4">
-            <Typography variant="h6" className="font-semibold">
+            <Typography variant="h6" className="font-semibold ">
               Filters
             </Typography>
             <IconButton onClick={() => setOpenFilters(false)}>
@@ -75,7 +65,7 @@ const FiltersSidebar = ({ minPrice = 0, maxPrice = 100000 }) => {
           </div>
 
           {/* ✅ Categories */}
-          <Typography variant="subtitle1" className="font-semibold">
+          <Typography variant="subtitle1" className="font-semibold mt-6">
             Categories
           </Typography>
           <hr className="mt-1" />
