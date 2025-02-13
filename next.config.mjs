@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "primecomputer.com.bd",
       },
+      {
+        protocol: "https",
+        hostname: "//www.freepik.com",
+      },
     ],
   },
 };

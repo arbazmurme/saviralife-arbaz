@@ -400,7 +400,7 @@ const FillCartDesktop = ({ isCartVisible, toggleCart }) => {
                 </span>
                 <span className={styles.cashType}>savira cash</span>
               </div>
-              <Link href="/checkout" className={styles.payBtn}>
+              <Link href="/checkout" className={styles.payBtn} onClick={toggleCart}>
                 Click to Pay{" "}
                 <span className={styles.payBtnPrice}>₹{total + tipAmount}</span>
               </Link>
